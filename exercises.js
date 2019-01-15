@@ -55,6 +55,13 @@ for (i=0;i<presidents.length;i++) {
    console.log("The value at "+i+" is "+presidents[i]+".");
 }
 
+function leaders(person) {
+   console.log("President "+person+" was a great leader.");
+}
+
+for (i=0;i<presidents.length;i++) {
+   leaders(presidents[i]);
+}
 
 /* 4) Line Number
 Declare a variable named `stringOfNumbers` and assign its value to an empty string. 
