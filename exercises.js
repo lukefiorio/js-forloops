@@ -179,7 +179,7 @@ function copyArray(originArray,destinationArray) {;
    for (var i=0;i<originArray.length;i++) {
       destinationArray.push(originArray[i]);
    }
-   return destinationArray
+   return destinationArray;
 }
 
 console.log(copyArray(valuesArray,copyValuesArray));
@@ -191,7 +191,55 @@ Declare a variable named `topQuote` and assign it to a String value of your favo
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
 
+var topQuote = 'git push git paid - or die tryin';
+var topQuote2 = 'Firrsstttt word is def the longest';
+var topQuote3 = 'last word is def the longest';
 
+function longestWord (wordsToLiveBy) {
+   // add starting position of each word to array
+   var wordStart=[0];
+   for (var i=0; i<wordsToLiveBy.length; i++) {
+      if (wordsToLiveBy.charAt(i)===' ') {
+         wordStart.push(i+1);
+      }
+   }
+
+   // calculate length of each word
+   var wordLengthArray = [];
+   for (var j=0; j<wordStart.length; j++) {
+      if (j<wordStart.length-1) {
+         wordLengthArray.push(wordStart[j+1]-wordStart[j]-1)
+      } else {
+         wordLengthArray.push(wordsToLiveBy.length-wordStart[j])
+      }
+   }
+
+   // index value of longest word
+   var maxWordIndex = wordLengthArray.indexOf(Math.max(...wordLengthArray));
+
+   // substring(long_word_char1, long_word_char1+long_word_char_cnt)
+   return wordsToLiveBy.substring(wordStart[maxWordIndex],wordStart[maxWordIndex]+wordLengthArray[maxWordIndex]);
+}
+
+console.log(longestWord(topQuote));
+//console.log(longestWord(topQuote2));
+//console.log(longestWord(topQuote3));
+
+//better method - uses string.split
+function longestWord2 (wordsToLiveBy) {
+   var wordArray = wordsToLiveBy.split(' ');
+   var longWord2 = '';
+   for (var i=0;i<wordArray.length;i++) {
+      if (wordArray[i].length>longWord2.length) {
+         longWord2=wordArray[i];
+      }
+   }
+   return longWord2;
+}
+
+console.log(longestWord2(topQuote));
+//console.log(longestWord2(topQuote2));
+//console.log(longestWord2(topQuote3));
 
 /* 12) Puppet Master
 Declare a variable named `miscStorage` set it's value to be: `[ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]`
