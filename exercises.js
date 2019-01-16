@@ -290,6 +290,17 @@ Note, please use two for loops to complete this problem
 
 var guide = [["Honolulu", "Waikiki"], ["Tokyo", "Tsukiji Fish Market"], ["Cairo", "Pyramids"],["Rome", "Colosseum"]];
 
+function consoleItUp (array2D) {
+   for (var i =0;i<array2D.length;i++) {
+      for (var j=0;j<2;j++) {
+         console.log(array2D[i][j]);
+      }
+   }
+   // just as a log. not the point of the function.
+   return array2D
+}
+
+console.log(consoleItUp(guide));
 
 
 /* 15) Back to School
